@@ -58,6 +58,30 @@
         <div class="media-item">
             <img src="ceragem_src/CERAGEM_WebAR_TEXT_004.png" alt="CERAGEM WebAR Text 004">
         </div>
+
+        <!-- WebXR Demo Embed -->
+        <div class="media-item">
+            <div id="webxr-container" style="position: relative; width: 100%; max-width: 400px; margin: 0 auto; aspect-ratio: 9/20;">
+                <div id="webxr-placeholder" onclick="loadWebXR()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #1a1a1a; border-radius: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s;">
+                    <span style="color: #fff; font-size: 18px; text-align: center; padding: 20px;">WebAR 체험 해보기</span>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function loadWebXR() {
+            const container = document.getElementById('webxr-container');
+            const placeholder = document.getElementById('webxr-placeholder');
+            placeholder.remove();
+
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://palgongsan.github.io/WebXR4TESTER/';
+            iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 20px;';
+            iframe.allow = 'camera; gyroscope; accelerometer; xr-spatial-tracking';
+            iframe.allowFullscreen = true;
+            container.appendChild(iframe);
+        }
+    </script>
 </body>
 </html>
